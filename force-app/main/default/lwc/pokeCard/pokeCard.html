@@ -28,17 +28,17 @@
           <img src={spriteImgUrl}/>
         </div>
         <b>Moves:</b>
-        <div>
+        <ul class="slds-list_dotted">
           <template for:each={moves} for:item="move">
-            <p key={move}>{move}</p>
+            <li key={move}>{move}</li>
           </template>
-        </div>
+        </ul>
         <b>Abilities:</b>
-        <div>
+        <ul class="slds-list_dotted">
           <template for:each={abilities} for:item="ability">
-            <p key={ability}>{ability}</p>
+            <li key={ability}>{ability}</li>
           </template>
-        </div>
+        </ul>
       </template>
     </div>
   </lightning-card>    
