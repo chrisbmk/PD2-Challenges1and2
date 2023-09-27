@@ -1,24 +1,45 @@
 <template>
-  <lightning-card title="Pokemon">
+  <lightning-card title="Poke Card">
     <div class="slds-card__body slds-card__body_inner">
       <lightning-input
         label="Enter Pokemon Name"
-        value={pokeName}>
+        value={pokeName}
+        onchange={handleChange}>
       </lightning-input>
       <lightning-layout>
-        <lightning-layout-item padding="around-small" class="slds-align_absolute-center">
-          <lightning-button
-            label="Find Pokemon"
-            onclick={findPoke}>
-          </lightning-button>
-        </lightning-layout-item>
-        <lightning-layout-item padding="around-small" class="slds-align_absolute-center">
-          <lightning-button
-            label="Reset"
-            onclick={reset}>
-          </lightning-button>
-        </lightning-layout-item>
+        <div class="slds-align_absolute-center">
+          <lightning-layout-item padding="around-small" flexibility="auto">
+            <lightning-button
+              label="Find Pokemon"
+              onclick={findPoke}>
+            </lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item padding="around-small" flexibility="auto">
+            <lightning-button
+              label="Reset"
+              onclick={reset}>
+            </lightning-button>
+          </lightning-layout-item>
+        </div>
       </lightning-layout>
+      
+      <template lwc:if={_pokeName}>
+        <div class="slds-align_absolute-center">
+          <img src={spriteImgUrl}/>
+        </div>
+        <b>Moves:</b>
+        <div>
+          <template for:each={moves} for:item="move">
+            <p key={move}>{move}</p>
+          </template>
+        </div>
+        <b>Abilities:</b>
+        <div>
+          <template for:each={abilities} for:item="ability">
+            <p key={ability}>{ability}</p>
+          </template>
+        </div>
+      </template>
     </div>
   </lightning-card>    
 </template>
