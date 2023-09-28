@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <members>Pokemon__c</members>
+    <members>Move__c</members>
+    <members>Ability__c</members>
+    <name>CustomObject</name>
+  </types>
+  <types>
+    <members>PokeData</members>
+    <name>CspTrustedSite</name>
+  </types>
+  <version>58.0</version>
+</Package>
