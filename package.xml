@@ -10,5 +10,9 @@
     <members>PokeData</members>
     <name>CspTrustedSite</name>
   </types>
+  <types>
+    <members>PokeApiLWC</members>
+    <name>FlexiPage</name>
+  </types>
   <version>58.0</version>
 </Package>
