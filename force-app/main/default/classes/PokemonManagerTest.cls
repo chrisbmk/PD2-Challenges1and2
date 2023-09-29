@@ -10,12 +10,10 @@ private class PokemonManagerTest {
     request.httpMethod = 'GET';
     RestContext.request = request;
 
-    String pokemonJson = PokemonManager.getPokemonById();
-
-    Map<String, Object> pokemon = (Map<String, Object>) JSON.deserializeUntyped(pokemonJson);
+    Pokemon__c pokemon = PokemonManager.getPokemonById();
 
     System.assert(pokemon != null);
-    System.assertEquals('ditto', pokemon.get('Name'));
+    System.assertEquals('ditto', pokemon.Name);
   }
 
   @isTest

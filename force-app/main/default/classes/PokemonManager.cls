@@ -1,7 +1,7 @@
 @RestResource(urlMapping='/Pokemon/*')
 global class PokemonManager {
   @HttpGet
-  global static String getPokemonById() {
+  global static Pokemon__c getPokemonById() {
     RestRequest request = RestContext.request;
     String pokemonId = request.requestURI.substring(request.requestURI.lastIndexOf('/') + 1);
 
@@ -11,11 +11,11 @@ global class PokemonManager {
       WHERE Id = :pokemonId
     ];
     
-    return JSON.serialize(pokemon);
+    return pokemon;
   }
 
   @HttpPost
-  global static String createPokemon(String pokeName, List<String> moves, List<String> abilities) {
+  global static Id createPokemon(String pokeName, List<String> moves, List<String> abilities) {
     Pokemon__c thisPokemon = new Pokemon__c(Name=pokeName);
     insert thisPokemon;
 
