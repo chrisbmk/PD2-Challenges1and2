@@ -6,20 +6,22 @@ private class PokemonManagerTest {
 
     RestRequest request = new RestRequest();
     request.requestURI = 
-      'https://myOrgInstance.my.salesforce.com/services/apexrest/Pokemon__c/' + recordId;
+      'https://myOrgInstance.my.salesforce.com/services/apexrest/Pokemon/' + recordId;
     request.httpMethod = 'GET';
     RestContext.request = request;
 
-    Pokemon__c thisPokemon = PokemonManager.getPokemonById();
+    String pokemonJson = PokemonManager.getPokemonById();
 
-    System.assert(thisPokemon != null);
-    System.assertEquals('ditto', thisPokemon.Name);
+    Map<String, Object> pokemon = (Map<String, Object>) JSON.deserializeUntyped(pokemonJson);
+
+    System.assert(pokemon != null);
+    System.assertEquals('ditto', pokemon.get('Name'));
   }
 
   @isTest
   static void testCreatePokemon() {
     Id thisPokemonId = 
-      PokemonManager.createPokemon('ditto', new List<String>{'transform'}, new List<String>{'limber', 'imposter'});
+      (Id) PokemonManager.createPokemon('ditto', new List<String>{'transform'}, new List<String>{'limber', 'imposter'});
     
     Pokemon__c thisPokemon = [
       SELECT Name, (SELECT Name FROM Moves__r), (SELECT Name FROM Abilities__r)
@@ -46,6 +48,7 @@ private class PokemonManagerTest {
       new Ability__c(Name='limber', Pokemon__c=pokemonTest.Id),
       new Ability__c(Name='imposter', Pokemon__c=pokemonTest.Id)
     };
+    insert abilitiesTest;
 
     return pokemonTest.Id;
   }

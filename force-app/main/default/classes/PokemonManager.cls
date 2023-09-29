@@ -1,21 +1,21 @@
-@RestResource(urlMapping='/Pokemon__c/*')
-global with sharing class PokemonManager {
+@RestResource(urlMapping='/Pokemon/*')
+global class PokemonManager {
   @HttpGet
-  global static Pokemon__c getPokemonById() {
+  global static String getPokemonById() {
     RestRequest request = RestContext.request;
     String pokemonId = request.requestURI.substring(request.requestURI.lastIndexOf('/') + 1);
 
-    Pokemon__c result = [
+    Pokemon__c pokemon = [
       SELECT Name, (SELECT Name FROM Moves__r), (SELECT Name FROM Abilities__r)
       FROM Pokemon__c
       WHERE Id = :pokemonId
     ];
     
-    return result;
+    return JSON.serialize(pokemon);
   }
 
   @HttpPost
-  global static Id createPokemon(String pokeName, List<String> moves, List<String> abilities) {
+  global static String createPokemon(String pokeName, List<String> moves, List<String> abilities) {
     Pokemon__c thisPokemon = new Pokemon__c(Name=pokeName);
     insert thisPokemon;
 
