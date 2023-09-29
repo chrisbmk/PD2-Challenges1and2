@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>ckz9@wildcats.unh.edu</contactEmail>
+    <label>PokemonManager</label>
+    <oauthConfig>
+        <callbackUrl>https://empathetic-panda-exvj3t-dev-ed.trailblaze.my.salesforce.com/services/authcallback/PokemonManager_Provider</callbackUrl>
+        <consumerKey>3MVG99gP.VbJma8V8uNNZXsccSNk5uIIoxnLYdE8DwVKASnraa4UYOtLPoS2_z6ezWL1kqjOvAEhopzPVGQvt</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

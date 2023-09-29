@@ -14,5 +14,9 @@
     <members>PokeApiLWC</members>
     <name>FlexiPage</name>
   </types>
+  <types>
+    <members>PokemonManager</members>
+    <name>ConnectedApp</name>
+  </types>
   <version>58.0</version>
 </Package>
